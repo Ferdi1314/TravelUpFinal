@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">TravelUp</string>
+    <string name="title_activity_my_coordinate">Map</string>
+</resources>

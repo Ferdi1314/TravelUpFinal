@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/logo">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:src="@drawable/logo" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/cityName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/logo">
+
+        <ImageView
+            android:id="@+id/imgLocation"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/ic_pin" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:layout_toRightOf="@id/imgLocation"
+            android:fontFamily="@font/robotoregular"
+            android:text="Yogyakarta"
+            android:textColor="#282828"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+    
+    <LinearLayout
+        android:id="@+id/menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cityName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="38dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp">
+
+            <ImageView
+                android:id="@+id/imgHotels"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_hotels" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imgHotels"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/robotoregular"
+                android:text="Hotels"
+                android:textColor="#282828"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp">
+
+            <ImageView
+                android:id="@+id/imgResto"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_restaurants"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imgResto"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/robotoregular"
+                android:text="Restaurants"
+                android:textColor="#282828"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp">
+
+            <ImageView
+                android:id="@+id/imgShops"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_shopping" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imgShops"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/robotoregular"
+                android:text="Popular shops"
+                android:textColor="#282828"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/rated_place"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/menu"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="50dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/rated_hotel">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Top Rated Hotels"
+                android:id="@+id/top_hotel"
+                android:textSize="16sp"
+                android:fontFamily="@font/robotobold"
+                android:textColor="#282828"/>
+            <TextView
+                android:id="@+id/view_hotel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="View all"
+                android:textColor="#DCC781"
+                android:layout_alignParentRight="true"
+                android:textSize="12sp"
+                android:layout_marginRight="50dp"
+                android:layout_marginTop="10dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"/>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerviewTopHotel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/top_hotel"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="30dp"
+                android:orientation="horizontal"
+                tools:listitem="@layout/top_place_list"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Top Rated Restaurants"
+                android:layout_below="@id/recyclerviewTopHotel"
+                android:layout_marginTop="10dp"
+                android:id="@+id/top_resto"
+                android:textSize="16sp"
+                android:fontFamily="@font/robotobold"
+                android:textColor="#282828"/>
+            <TextView
+                android:id="@+id/view_restaurant"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="View all"
+                android:layout_below="@id/recyclerviewTopHotel"
+                android:textColor="#DCC781"
+                android:layout_alignParentRight="true"
+                android:textSize="12sp"
+                android:layout_marginRight="50dp"
+                android:layout_marginTop="20dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"/>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerviewTopResto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/top_resto"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="30dp"
+                android:orientation="horizontal"
+                tools:listitem="@layout/top_place_list"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Top Rated Shops"
+                android:layout_below="@id/recyclerviewTopResto"
+                android:layout_marginTop="10dp"
+                android:id="@+id/top_shop"
+                android:textSize="16sp"
+                android:fontFamily="@font/robotobold"
+                android:textColor="#282828"/>
+            <TextView
+                android:id="@+id/view_shop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="View all"
+                android:layout_below="@id/recyclerviewTopResto"
+                android:textColor="#DCC781"
+                android:layout_alignParentRight="true"
+                android:textSize="12sp"
+                android:layout_marginRight="50dp"
+                android:layout_marginTop="20dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"/>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerviewTopShop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/top_shop"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="30dp"
+                android:orientation="horizontal"
+                tools:listitem="@layout/top_place_list"/>
+
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>
